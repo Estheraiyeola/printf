@@ -1,6 +1,4 @@
 #ifndef MAIN_H
 #define MAIN_H
-
-Int _printf(const char *format, ...);
-
+int _printf(const char *format, ...);
 #endif
