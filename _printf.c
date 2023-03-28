@@ -1,26 +1,35 @@
 #include "main.h"
 
-void print_buffer(char buffer[], int *buff_ind);
-
 /**
- * _printf - Printf function
- * @format: format.
- * Return: Printed chars.
+ * _printf - produces output to a format
+ * @format: A character string
+ * Return: A total count of the characters printed
  */
 int _printf(const char *format, ...)
 {
-	int i, printed = 0, printed_chars = 0;
-	int flags, width, precision, size, buff_ind = 0;
-	va_list list;
-	char buffer[BUFF_SIZE];
+	int printed_chars;
+	conver_t f_list[] = {
+		{"c", print_char},
+		{"s", print_string},
+		{"%", print_percent},
+		{"d", print_integer},
+		{"i", print_integer},
+		{"b", print_binary},
+		{"r", print_reversed},
+		{"R", rot13},
+		{"u", unsigned_integer},
+		{"o", print_octal},
+		{"x", print_hex},
+		{"X", print_heX},
+		{NULL, NULL}
+	};
+	va_list arg_list;
 
 	if (format == NULL)
-		return (-1);
-
-	va_start(list, format);
-
-	for (i = 0; format && format[i] != '\0'; i++)
 	{
+<<<<<<< HEAD
+		return (-1);
+=======
 		if (format[i] != '%')
 		{
 			buffer[buff_ind++] = format[i];
@@ -43,14 +52,16 @@ int _printf(const char *format, ...)
 				return (-1);
 			printed_chars += printed;
 		}
+>>>>>>> ebf5997cba0fc418576da0489dc8e651bd27c089
 	}
+	va_start(arg_list, format);
 
-	print_buffer(buffer, &buff_ind);
-
-	va_end(list);
-
+	printed_chars = parser(format, f_list, arg_list);
+	va_end(arg_list);
 	return (printed_chars);
 }
+<<<<<<< HEAD
+=======
 
 /**
  * print_buffer - Prints the contents of the buffer if it exist
@@ -65,3 +76,4 @@ void print_buffer(char buffer[], int *buff_ind)
 	*buff_ind = 0;
 }
 
+>>>>>>> ebf5997cba0fc418576da0489dc8e651bd27c089
