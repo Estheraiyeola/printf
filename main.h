@@ -1,6 +1,5 @@
 #ifndef MAIN_H
 #define MAIN_H
-<<<<<<< HEAD
 
 #include <unistd.h>
 #include <stdlib.h>
@@ -40,13 +39,4 @@ char *rev_string(char *);
 void write_base(char *str);
 char *_memcpy(char *dest, char *src, unsigned int n);
 int print_unsgined_number(unsigned int);
-=======
-<<<<<<< HEAD
-
-int _printf(const char *format, ...);
-
-=======
-int _printf(const char *format, ...);
->>>>>>> ea514add46103035ad5433933cc85fdee4c76b7a
->>>>>>> ebf5997cba0fc418576da0489dc8e651bd27c089
 #endif
